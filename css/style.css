@@ -1,0 +1,144 @@
+/* ===================================================================
+   LESOFEN KINETIKA - Human Movement · Anatomy · Biomechanics
+   Obsidian Medical Laboratory Theme
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-obsidian: #08090c;
+  --bg-panel: #0d1017;
+  --bg-card: #121620;
+  --border-subtle: #1e2433;
+  --border-accent: #2d3748;
+
+  --accent-cyan: #00f2fe;
+  --accent-amber: #ff9f1c;
+  --accent-rose: #ef4444;
+  --accent-emerald: #10b981;
+  --accent-purple: #a855f7;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090c;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2433;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #252e42;
+  border-radius: 4px;
+}
+
+/* Laboratory & Matrix Styling */
+.muscle-matrix-wrapper {
+  background: radial-gradient(circle at 50% 10%, #0f1422 0%, #08090c 70%);
+}
+
+.muscle-matrix-card {
+  backdrop-filter: blur(8px);
+}
+
+.muscle-matrix-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Agenda Drag & Drop Styles */
+.split-chip {
+  cursor: grab;
+  user-select: none;
+}
+.split-chip:active {
+  cursor: grabbing;
+}
+
+.day-cell {
+  user-select: none;
+}
+
+.day-cell.drag-over {
+  border-color: #00f2fe !important;
+  background-color: rgba(0, 242, 254, 0.1) !important;
+}
+
+.placed-split-chip {
+  transition: transform 0.15s ease;
+}
+.placed-split-chip:hover {
+  transform: scale(1.02);
+}
+
+/* Range Inputs */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #ff9f1c;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 159, 28, 0.6);
+  margin-top: -5px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #1e293b;
+  border-radius: 4px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LESOFEN KINETIKA — Human Movement · Anatomy · Biomechanics</title>
+  <meta name="description" content="İnsan hareketini, fonksiyonel anatomiyi ve biyomekaniği interaktif olarak birleştiren dijital laboratuvar ve atlas.">
+  <meta name="theme-color" content="#08090c">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#08090c',
+            labCard: '#121620'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#08090c] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
+
+  <!-- Üst Gezinti ve Marka Çubuğu -->
+  <div id="siteHeaderContainer"></div>
+
+  <!-- Tıklanabilir Breadcrumb Gezinti Çubuğu -->
+  <div id="breadcrumbContainer" class="sticky top-[57px] z-30"></div>
+
+  <!-- Ana İçerik Alanı -->
+  <main class="flex-1 flex flex-col relative w-full overflow-hidden">
+
+    <!-- 0. GÖRÜNÜM: PORTAL HOME (LEVEL 1 GİRİŞ KAPISI) -->
+    <section id="viewHome" class="view-panel flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="portalHomeContainer"></div>
+    </section>
+
+    <!-- 1. GÖRÜNÜM: KAS SİSTEMİ (3 KADEMELİ HİYERARŞİ) -->
+    <section id="viewAnatomy" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="muscleHierarchyContainer"></div>
+    </section>
+
+    <!-- 2. GÖRÜNÜM: HAREKET ATLASI -->
+    <section id="viewMovements" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="movementAtlasContainer"></div>
+    </section>
+
+    <!-- 3. GÖRÜNÜM: BİYOMEKANİK LABORATUVARI -->
+    <section id="viewBioLab" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="bioLabContainer"></div>
+    </section>
+
+    <!-- 4. GÖRÜNÜM: EGZERSİZ ANALİZİ -->
+    <section id="viewExercises" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="exerciseLabContainer"></div>
+    </section>
+
+    <!-- 5. GÖRÜNÜM: "NEDEN HİSSEDİYORUM?" REHBERİ -->
+    <section id="viewInsights" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="insightsContainer"></div>
+    </section>
+
+    <!-- 6. GÖRÜNÜM: FONKSİYONEL QUIZ -->
+    <section id="viewQuiz" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="quizContainer"></div>
+    </section>
+
+    <!-- 7. GÖRÜNÜM: ANTRENMAN AJANDASI (YENİ) -->
+    <section id="viewAgenda" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+      <div id="agendaContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Ana Uygulama Scripti (ES Module) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
