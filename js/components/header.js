@@ -18,8 +18,8 @@ export class Header {
       <header class="site-header bg-slate-950/95 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40 px-3 sm:px-4 py-2.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           <!-- Marka & Logo Alanı -->
-          <div class="brand-block flex items-center gap-2.5 cursor-pointer" id="brandHomeLink">
-            <img src="assets/branding/logo.png" alt="LESOFEN KINETIKA" class="w-[36px] h-[36px] sm:w-[50px] sm:h-[50px] rounded-full object-contain shrink-0 shadow-lg shadow-cyan-500/10 transition-transform hover:scale-105" />
+          <div class="brand-block flex items-center gap-2.5 md:gap-3 cursor-pointer" id="brandHomeLink">
+            <img src="assets/branding/logo.png" alt="LESOFEN KINETIKA" class="header-brand-logo rounded-full shadow-lg shadow-cyan-500/10 transition-transform hover:scale-105" />
             <div class="brand-text flex flex-col">
               <span class="tracking-[0.24em] text-[10px] font-mono text-amber-400 font-bold leading-none">LESOFEN</span>
               <span class="text-base sm:text-lg font-black tracking-tight text-white leading-tight">KINETIKA</span>

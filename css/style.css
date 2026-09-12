@@ -142,3 +142,19 @@ input[type=range]::-webkit-slider-runnable-track {
   background: #1e293b;
   border-radius: 4px;
 }
+
+/* Header Brand Logo Responsive Sizing */
+.header-brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (min-width: 769px) {
+  .header-brand-logo {
+    width: 62px;
+    height: 62px;
+  }
+}
+
