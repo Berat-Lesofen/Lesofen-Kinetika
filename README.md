@@ -65,7 +65,7 @@ Sıfır bağımlılık; yerel sunucu ile çalıştırabilirsiniz:
 
 ```bash
 # Yerel sunucuyu başlatmak için:
-node server.js
+node scripts/server.js
 ```
 
 Tarayıcınızda açın:
