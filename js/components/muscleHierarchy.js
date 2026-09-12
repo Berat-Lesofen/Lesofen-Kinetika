@@ -400,9 +400,15 @@ export class MuscleHierarchy {
       ctaBio.addEventListener('click', () => {
         // İlgili simülasyonu seç
         let sim = "lateral_raise";
-        if (muscle.id.includes('biceps') || muscle.id.includes('brachialis')) sim = "biceps_curl";
-        else if (muscle.id.includes('quadriceps') || muscle.id.includes('gluteus') || muscle.id.includes('hamstring')) sim = "squat_lever";
-        else if (muscle.id.includes('pectoralis') || muscle.id.includes('triceps')) sim = "bench_mechanics";
+        if (muscle.id.includes('biceps') || muscle.id.includes('brachialis') || muscle.id.includes('forearm')) {
+          sim = "biceps_curl";
+        } else if (muscle.id.includes('quadriceps') || muscle.id.includes('gluteus') || muscle.id.includes('hamstring') || muscle.id.includes('calves') || muscle.id.includes('gastrocnemius') || muscle.id.includes('soleus') || muscle.id.includes('tibialis') || muscle.id.includes('erector')) {
+          sim = "squat_lever";
+        } else if (muscle.id.includes('pectoralis') || muscle.id.includes('triceps')) {
+          sim = "bench_mechanics";
+        } else {
+          sim = "lateral_raise";
+        }
         state.openBioLab(sim, `${muscle.name} Mekaniği`);
       });
     }

@@ -229,9 +229,15 @@ export class MovementAtlas {
     if (bioBtn) {
       bioBtn.addEventListener('click', () => {
         let sim = "lateral_raise";
-        if (activeMovement.id.includes('elbow')) sim = "biceps_curl";
-        else if (activeMovement.id.includes('knee') || activeMovement.id.includes('hip')) sim = "squat_lever";
-        else if (activeMovement.id.includes('bench') || activeMovement.id.includes('adduction')) sim = "bench_mechanics";
+        if (activeMovement.id.includes('elbow') || activeMovement.id.includes('supination') || activeMovement.id.includes('pronation')) {
+          sim = "biceps_curl";
+        } else if (activeMovement.id.includes('knee') || activeMovement.id.includes('hip') || activeMovement.id.includes('ankle') || activeMovement.id.includes('spine') || activeMovement.id.includes('lomber')) {
+          sim = "squat_lever";
+        } else if (activeMovement.id.includes('bench') || activeMovement.id.includes('adduction') || activeMovement.id.includes('press')) {
+          sim = "bench_mechanics";
+        } else {
+          sim = "lateral_raise";
+        }
         state.openBioLab(sim, `${activeMovement.name} Mekaniği`);
       });
     }

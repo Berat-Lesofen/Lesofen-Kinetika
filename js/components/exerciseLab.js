@@ -207,9 +207,15 @@ export class ExerciseLab {
     if (bioBtn) {
       bioBtn.addEventListener('click', () => {
         let sim = "lateral_raise";
-        if (activeExercise.id.includes('curl')) sim = "biceps_curl";
-        else if (activeExercise.id.includes('squat')) sim = "squat_lever";
-        else if (activeExercise.id.includes('bench')) sim = "bench_mechanics";
+        if (activeExercise.id.includes('curl') || activeExercise.id.includes('pulldown')) {
+          sim = "biceps_curl";
+        } else if (activeExercise.id.includes('squat') || activeExercise.id.includes('deadlift') || activeExercise.id.includes('thrust')) {
+          sim = "squat_lever";
+        } else if (activeExercise.id.includes('bench')) {
+          sim = "bench_mechanics";
+        } else {
+          sim = "lateral_raise";
+        }
         state.openBioLab(sim, `${activeExercise.name} Mekaniği`);
       });
     }
