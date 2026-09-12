@@ -202,7 +202,7 @@ export const MUSCLES = [
       insertion: "Tuberculum majus humeri (orta ve alt faset)"
     },
     innervation: {
-      nerve: "Nervus suprascapularis & Nervus axillaris",
+      nerve: "Infraspinatus: N. suprascapularis; Teres Minor: N. axillaris",
       roots: "C5 - C6"
     },
     actions: [
@@ -595,9 +595,9 @@ export const MUSCLES = [
       roots: "C5 - C6"
     },
     actions: [
-      { movement: "elbow_flexion", role: "prime_mover", description: "Önkolun rotasyon pozisyonundan (supinasyon/pronasyon) bağımsız çalışan, dirsek fleksiyonunun en temel ve güçlü beygir gücüdür." },
-      { movement: "forearm_pronation", role: "synergist", description: "Brachioradialis önkolu nötr pozisyona getirmeye yardımcı olur." },
-      { movement: "forearm_supination", role: "synergist", description: "Tam pronasyondaki kolu yarı-supinasyona yönlendirir." }
+      { movement: "elbow_flexion", role: "prime_mover", description: "Önkolun rotasyon pozisyonundan bağımsız çalışan Brachialis ve nötr tutuşta güçlü Brachioradialis ile temel dirsek fleksiyon kuvveti üretilir." },
+      { movement: "forearm_pronation", role: "synergist", description: "Brachioradialis tam supinasyondaki önkolu nötr pozisyona doğru çevirmeye yardımcı olur (Brachialis rotasyona katılmaz)." },
+      { movement: "forearm_supination", role: "synergist", description: "Brachioradialis tam pronasyondaki önkolu nötr pozisyona doğru çevirmeye yardımcı olur (Brachialis rotasyona katılmaz)." }
     ],
     exercises: [
       {
@@ -609,8 +609,8 @@ export const MUSCLES = [
       }
     ],
     biomechanics: {
-      momentArmType: "Ulna kemiğine yapışması sebebiyle önkol rotasyonundan etkilenmeyen tutarlı iç kaldıraç.",
-      resistanceProfileTip: "Biceps kasının altından geçen Brachialis hipertrofiye uğradığında üst kol hacmini dışa doğru iter."
+      momentArmType: "Brachialis ulna tuberositasına yapışarak önkol rotasyonundan bağımsız saf ve tutarlı fleksiyon momenti üretir. Yüzeyel bir kas olan Brachioradialis ise radius styloid çıkıntısına yapışır ve özellikle nötr (çekiç) tutuşta en yüksek moment koluna ulaşır.",
+      resistanceProfileTip: "Biceps kasının altından geçen Brachialis hipertrofiye uğradığında üst kol hacmini dışa doğru iter; Brachioradialis ise önkol lateral hattını doldurur."
     },
     evidence: [
       "Basmajian & Latif (1957) - Integrated actions and functions of chief flexors of the elbow",
@@ -1039,7 +1039,7 @@ export const MUSCLES = [
       insertion: "Caput fibulae ve tibia medial kondili"
     },
     innervation: {
-      nerve: "Nervus ischiadicus",
+      nerve: "Nervus ischiadicus (Tibial dal: ST, SM, BF uzun baş; Common Fibular dal: BF kısa baş)",
       roots: "L5 - S2"
     },
     actions: [

@@ -442,7 +442,7 @@ export class BiomechanicsLab {
       <div class="mt-3 w-full grid grid-cols-2 gap-2 text-xs font-mono">
         <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
           <span class="text-cyan-400 block font-bold">Diz Ekstansiyon Talebi:</span>
-          <span class="text-slate-300">${isLowBar ? 'Daha Düşük (Quadriceps koruyucu)' : 'Daha Yüksek (Quadriceps odaklı)'}</span>
+          <span class="text-slate-300">${isLowBar ? 'Daha Düşük Moment Kolu (Kalça dominant)' : 'Daha Yüksek Moment Kolu (Quadriceps odaklı)'}</span>
         </div>
         <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
           <span class="text-emerald-400 block font-bold">Kalça Ekstansiyon Talebi:</span>

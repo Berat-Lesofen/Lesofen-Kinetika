@@ -175,9 +175,9 @@ export const MOVEMENTS = [
     rom: "0° - ~85°",
     description: "Önkolun dışa döndürülerek avuç içinin yukarı/öne bakması.",
     primeMovers: ["biceps_brachii"],
-    synergists: ["brachialis_brachioradialis"],
+    synergists: [],
     antagonists: [],
-    mechanicsNote: "Biceps tendonu tuberositas radii üzerine sarıldığı için, önkol supinasyona geçtiğinde tendondaki çekiş açısı maksimize olur ve dirsek fleksiyonundaki mekanik avantaj belirginleşir.",
+    mechanicsNote: "Biceps tendonu tuberositas radii üzerine sarıldığı için, önkol supinasyona geçtiğinde tendondaki çekiş açısı maksimize olur ve dirsek fleksiyonundaki mekanik avantaj zirveye ulaşır. Supinasyonun primer motorları Biceps Brachii ve Musculus Supinator'dur. Ulna kemiğine yapışan Brachialis ise önkol rotasyonuna katılmaz.",
     exerciseIds: ["supinated_barbell_curl", "incline_dumbbell_curl"]
   },
   {
@@ -188,10 +188,10 @@ export const MOVEMENTS = [
     axis: "Önkol Boyuna Ekseni",
     rom: "0° - ~75°",
     description: "Önkolun içe döndürülerek avuç içinin aşağı/arkaya bakması.",
-    primeMovers: ["brachialis_brachioradialis"],
+    primeMovers: [],
     synergists: [],
     antagonists: ["biceps_brachii"],
-    mechanicsNote: "Pronasyon durumunda biceps tendonu kemiğin etrafına dolanarak moment kolunu kısmen kaybeder; bu pozisyonda dirsek fleksiyonunun büyük bölümü Brachialis tarafından üstlenilir.",
+    mechanicsNote: "Önkol pronasyonunun primer motorları Pronator Teres ve Pronator Quadratus kaslarıdır. Brachioradialis yalnızca tam supinasyondan nötre dönüşte yardımcı rol oynar; ulna kemiğine yapışan Brachialis ise önkol rotasyonuna katılmaz.",
     exerciseIds: ["hammer_curl"]
   },
   {
@@ -265,7 +265,7 @@ export const MOVEMENTS = [
     primeMovers: ["trapezius_upper", "trapezius_middle_lower"],
     synergists: [],
     antagonists: ["rhomboids"],
-    mechanicsNote: "Kol 90° ve üzerine kalkarken akromiyonun humerus başına çarpmasını önleyen kuvvet çifti mekanizmasıdır.",
+    mechanicsNote: "Kol 90° ve üzerine kalkarken akromiyonun humerus başına çarpmasını önleyen kuvvet çifti (force couple) mekanizmasıdır. Üst ve alt trapezius lifleri ile birlikte Serratus Anterior kası kürek kemiğini yukarı döndüren ana sinerjik motor grubunu oluşturur.",
     exerciseIds: ["overhead_press", "y_raise_prone"]
   },
   {
@@ -309,9 +309,9 @@ export const MOVEMENTS = [
     rom: "0° - ~120°",
     description: "Uyluğun gövdeye doğru çekilmesi.",
     primeMovers: ["quadriceps_rectus_femoris"],
-    synergists: ["rectus_abdominis"],
+    synergists: [],
     antagonists: ["gluteus_maximus", "hamstrings"],
-    mechanicsNote: "İki eklemli Rectus Femoris, kalça fleksiyondayken aktif kısalma pozisyonundadır.",
+    mechanicsNote: "İki eklemli Rectus Femoris, kalça fleksiyonunun temel anterior motorlarındandır. Rectus Abdominis kalça eklemini kat etmez; bacak gövdeye çekilirken pelvisin aşırı anterior pelvik tilte kaymasını önleyen izometrik lumbopelvik stabilizatördür.",
     exerciseIds: ["hanging_leg_raise", "leg_extension"]
   },
   {

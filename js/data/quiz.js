@@ -5,7 +5,7 @@
 export const QUIZ_QUESTIONS = [
   {
     id: "q1",
-    question: "Omuz abdüksiyonunun ilk 0-15 derecesinde kolu gövdeden ayıran ve humerus başını glenoid kavitede sabitleyen primer kas hangisidir?",
+    question: "Omuz abdüksiyonunun başlangıcından itibaren humerus başını glenoid kavitede sabitleyerek (merkezleyerek) deltoid kasıyla birlikte elevasyon torku üreten kritik rotator manşet kası hangisidir?",
     options: [
       "Lateral Deltoid",
       "Supraspinatus",
@@ -13,7 +13,7 @@ export const QUIZ_QUESTIONS = [
       "Pectoralis Major"
     ],
     correctIndex: 1,
-    explanation: "Doğru! Deltoid kasının çekme açısı 0-15° aralığında humerus şaftına neredeyse paraleldir ve yukarı doğru kompresyon üretir. Bu yüzden abdüksiyonu başlatan ve eklemi merkezleyen asıl kas Rotator Manşet üyesi Supraspinatus'tur; ardından 15° sonrasında Lateral Deltoid bayrağı devralır."
+    explanation: "Doğru! Yaygın bir inanışın aksine deltoid ve supraspinatus abdüksiyonun 0. derecesinden itibaren eşzamanlı aktive olur. Ancak supraspinatus, deltoidin humerus başını yukarı kaydırma (shear) eğilimine karşı eklemi sokete doğru çekerek merkezler (kompresyon sağlar) ve başlangıç fazında torka elverişli bir moment koluyla katkı sunar."
   },
   {
     id: "q2",
