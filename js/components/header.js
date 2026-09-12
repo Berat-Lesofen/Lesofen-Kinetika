@@ -19,9 +19,7 @@ export class Header {
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           <!-- Marka & Logo Alanı -->
           <div class="brand-block flex items-center gap-2.5 cursor-pointer" id="brandHomeLink">
-            <div class="brand-emblem w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-indigo-600 flex items-center justify-center text-slate-950 font-black font-mono text-base shadow-lg shadow-cyan-500/20">
-              LK
-            </div>
+            <img src="assets/branding/logo.png" alt="LESOFEN KINETIKA" class="w-[36px] h-[36px] sm:w-[50px] sm:h-[50px] rounded-full object-contain shrink-0 shadow-lg shadow-cyan-500/10 transition-transform hover:scale-105" />
             <div class="brand-text flex flex-col">
               <span class="tracking-[0.24em] text-[10px] font-mono text-amber-400 font-bold leading-none">LESOFEN</span>
               <span class="text-base sm:text-lg font-black tracking-tight text-white leading-tight">KINETIKA</span>
