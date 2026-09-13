@@ -21,6 +21,7 @@ export class LateralRaiseRenderer {
     this.showAngles = true;
     this.showMuscles = true;
     this.showBones = true;
+    this.showLegend = true;
 
     // Scaling
     this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
@@ -333,6 +334,7 @@ export class LateralRaiseRenderer {
   }
 
   drawLegend(ctx, w, h) {
+    if (!this.showLegend || w < 600) return;
     ctx.save();
     const legendX = 20;
     const legendY = 20;

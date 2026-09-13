@@ -150,6 +150,72 @@ allMuscles.forEach(m => {
   assert(['lateral_raise', 'biceps_curl', 'squat_lever', 'bench_mechanics'].includes(lab.state.activeSim), `Muscle '${m.name}' routes to valid simulator '${lab.state.activeSim}'`);
 });
 
+// 7. RESPONSIVE UI & MOBILE CANVAS LEGEND CHECK
+console.log("\n--- 7. Responsive UI & Mobile Canvas Legend Check ---");
+simulators.forEach(sim => {
+  lab.state.activeSim = sim.key;
+  const html = lab.renderActiveSimulator();
+  assert(html.includes('mobile-canvas-legend lg:hidden'), `Simulator '${sim.name}' contains dedicated mobile HTML legend`);
+  assert(html.includes('flex-wrap') && html.includes('gap-x-3') && html.includes('gap-y-1.5'), `Simulator '${sim.name}' has flex-wrap checkboxes container`);
+  assert(html.includes('grid-cols-1 sm:grid-cols-2'), `Simulator '${sim.name}' has 1-col mobile, 2-col tablet/desktop telemetry grid`);
+  assert(html.includes('hidden sm:inline'), `Simulator '${sim.name}' uses responsive tick button labels`);
+});
+
+// Verify in-canvas legend suppression under 600px width across all 4 renderers
+Object.entries(lab.models).forEach(([key, model]) => {
+  assert(model.renderer !== null, `Renderer '${key}' exists`);
+  assert(model.renderer.showLegend === true, `Renderer '${key}' has showLegend flag set to true by default`);
+  
+  const createProxyCtx = (onFillText) => new Proxy({}, {
+    get: (target, prop) => {
+      if (prop === 'measureText') return () => ({ width: 50 });
+      if (prop === 'createLinearGradient' || prop === 'createRadialGradient') return () => mockGrad;
+      if (prop === 'fillText') return (...args) => { if (onFillText) onFillText(...args); };
+      return () => {};
+    }
+  });
+
+  // Test mobile canvas width (< 600): canvas legend header "LEJANT" must NOT be drawn
+  let legendDrawnOnMobile = false;
+  const mobileCtx = createProxyCtx((text) => {
+    if (typeof text === 'string' && text.includes('LEJANT')) {
+      legendDrawnOnMobile = true;
+    }
+  });
+  const mobileCanvas = {
+    getContext: () => mobileCtx,
+    getBoundingClientRect: () => ({ width: 375, height: 280 }),
+    parentElement: { clientWidth: 375, clientHeight: 280 },
+    width: 375,
+    height: 280
+  };
+  model.setCanvas(mobileCanvas);
+  legendDrawnOnMobile = false;
+  model.resize();
+  model.render();
+  assert(!legendDrawnOnMobile, `Renderer '${key}' suppresses in-canvas legend overlay when width < 600px (mobile)`);
+
+  // Test desktop canvas width (>= 600): canvas legend header "LEJANT" MUST be drawn
+  let legendDrawnOnDesktop = false;
+  const desktopCtx = createProxyCtx((text) => {
+    if (typeof text === 'string' && text.includes('LEJANT')) {
+      legendDrawnOnDesktop = true;
+    }
+  });
+  const desktopCanvas = {
+    getContext: () => desktopCtx,
+    getBoundingClientRect: () => ({ width: 800, height: 600 }),
+    parentElement: { clientWidth: 800, clientHeight: 600 },
+    width: 800,
+    height: 600
+  };
+  model.setCanvas(desktopCanvas);
+  legendDrawnOnDesktop = false;
+  model.resize();
+  model.render();
+  assert(legendDrawnOnDesktop, `Renderer '${key}' renders in-canvas legend overlay when width >= 600px (desktop)`);
+});
+
 console.log("\n=======================================================");
 console.log(`📊 BIOLAB TEST SUMMARY: ${passed} PASSED, ${failed} FAILED`);
 console.log("=======================================================\n");

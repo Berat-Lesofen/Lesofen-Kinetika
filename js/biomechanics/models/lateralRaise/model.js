@@ -196,8 +196,8 @@ export class LateralRaiseModel {
     // Dynamically place shoulder joint based on canvas aspect ratio
     const cw = this.renderer.width;
     const ch = this.renderer.height;
-    this.shoulderBasePos = new Vector2(cw * 0.32, ch * 0.38);
-    this.pixelsPerMeter = Math.min(cw, ch) * 0.65;
+    this.shoulderBasePos = new Vector2(cw * 0.30, ch * 0.42);
+    this.pixelsPerMeter = Math.min(cw, ch) * 0.58;
 
     this.update();
   }

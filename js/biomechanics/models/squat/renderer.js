@@ -20,6 +20,7 @@ export class SquatRenderer {
     this.showForces = true;
     this.showAngles = true;
     this.showCom = true;
+    this.showLegend = true;
 
     this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   }
@@ -298,6 +299,7 @@ export class SquatRenderer {
   }
 
   drawLegend(ctx, w, h, analysis) {
+    if (!this.showLegend || w < 600 || !analysis || !analysis.momentArms) return;
     ctx.save();
     const legendX = 20;
     const legendY = 20;

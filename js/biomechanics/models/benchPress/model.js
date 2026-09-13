@@ -202,8 +202,8 @@ export class BenchPressModel {
     const cw = this.renderer.width;
     const ch = this.renderer.height;
     // Bench horizontal plane positioned in middle-lower third
-    this.benchBasePos = new Vector2(cw * 0.22, ch * 0.65);
-    this.pixelsPerMeter = Math.min(cw, ch) * 0.52;
+    this.benchBasePos = new Vector2(cw * 0.20, ch * 0.65);
+    this.pixelsPerMeter = Math.min(cw, ch) * 0.50;
 
     this.update();
   }

@@ -193,8 +193,8 @@ export class BicepsCurlModel {
     const cw = this.renderer.width;
     const ch = this.renderer.height;
     // Position elbow nicely in canvas
-    this.elbowBasePos = new Vector2(cw * 0.40, ch * 0.60);
-    this.pixelsPerMeter = Math.min(cw, ch) * 0.70;
+    this.elbowBasePos = new Vector2(cw * 0.38, ch * 0.58);
+    this.pixelsPerMeter = Math.min(cw, ch) * 0.62;
 
     this.update();
   }

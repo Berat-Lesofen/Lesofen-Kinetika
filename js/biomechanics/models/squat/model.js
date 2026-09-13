@@ -197,8 +197,8 @@ export class SquatModel {
     const cw = this.renderer.width;
     const ch = this.renderer.height;
     // Ankle anchored nicely above bottom platform
-    this.footBasePos = new Vector2(cw * 0.44, ch * 0.82);
-    this.pixelsPerMeter = Math.min(cw, ch) * 0.48;
+    this.footBasePos = new Vector2(cw * 0.44, ch * 0.84);
+    this.pixelsPerMeter = Math.min(cw, ch) * 0.45;
 
     this.update();
   }

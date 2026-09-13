@@ -24,6 +24,7 @@ export class BicepsCurlRenderer {
     this.showForces = true;
     this.showMomentArms = true;
     this.showAngles = true;
+    this.showLegend = true;
 
     this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   }
@@ -353,6 +354,7 @@ export class BicepsCurlRenderer {
   }
 
   drawLegend(ctx, w, h) {
+    if (!this.showLegend || w < 600) return;
     ctx.save();
     const legendX = 20;
     const legendY = 20;

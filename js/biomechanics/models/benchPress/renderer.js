@@ -20,6 +20,7 @@ export class BenchPressRenderer {
     this.showMomentArms = true;
     this.showForces = true;
     this.showAngles = true;
+    this.showLegend = true;
 
     this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   }
@@ -267,6 +268,7 @@ export class BenchPressRenderer {
   }
 
   drawLegend(ctx, w, h, analysis) {
+    if (!this.showLegend || w < 600 || !analysis || !analysis.momentArms) return;
     ctx.save();
     const legendX = 20;
     const legendY = 20;
