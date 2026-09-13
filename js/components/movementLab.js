@@ -56,7 +56,7 @@ export class MovementAtlas {
             <span class="text-slate-600">·</span>
             <span class="text-xs text-slate-400">Eklem Seçimi</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi eklem hareketini incelemek istiyorsunuz?</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Hangi eklem hareketini incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
             Aşağıdan bir eklem seçin. O eklem etrafındaki hareket düzlemlerini, agonist ve antagonist kas kuvvet çiftlerini inceleyin.
           </p>
@@ -105,7 +105,7 @@ export class MovementAtlas {
               ${jointName} Eklemi · ${movements.length} Hareket
             </span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">${jointName} Hareketleri</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">${jointName} Hareketleri</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1">
             Soldan bir hareket seçerek düzlem, dönme ekseni ve kas kuvvet çifti dağılımını inceleyin.
           </p>
@@ -132,7 +132,7 @@ export class MovementAtlas {
           <div class="lg:col-span-8 bg-slate-950 border border-slate-800/90 rounded-2xl p-5 shadow-2xl space-y-4">
             <div class="border-b border-slate-800 pb-3">
               <span class="font-mono text-[10px] text-indigo-400 uppercase tracking-wider block mb-1">DÖNME EKSENİ & DÜZLEM</span>
-              <h3 class="text-xl font-black text-white">${activeMovement.name}</h3>
+              <h3 class="font-serif text-2xl font-bold text-white">${activeMovement.name}</h3>
               <p class="text-xs text-slate-400 mt-1">${activeMovement.description}</p>
             </div>
 

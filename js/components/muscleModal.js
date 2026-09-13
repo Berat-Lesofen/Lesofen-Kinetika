@@ -46,7 +46,7 @@ export class MuscleDetailPanel {
               ${muscle.depthLayer === 'deep' ? 'Derin Katman' : 'Yüzeyel Katman'}
             </span>
           </div>
-          <h2 class="text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <h2 class="font-serif text-2xl font-bold text-white tracking-tight flex items-center gap-2">
             <span class="w-3 h-3 rounded-full shrink-0" style="background-color: ${muscle.color};"></span>
             ${muscle.name}
           </h2>

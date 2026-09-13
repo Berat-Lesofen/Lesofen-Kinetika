@@ -47,7 +47,7 @@ export class TrainingAgenda {
               <span class="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider">ANTRENMAN AJANDASI</span>
               <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Hafıza: Cihaz / LocalStorage</span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi Gün Hangi Split'i Yaptın?</h2>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Hangi Gün Hangi Split'i Yaptın?</h2>
             <p class="text-xs text-slate-400 mt-0.5">
               Split kartlarını takvim hücrelerine sürükleyin veya karta dokunduktan sonra istediğiniz güne tıklayın.
             </p>

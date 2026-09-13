@@ -30,7 +30,7 @@ export class FunctionalQuiz {
         <div class="border-b border-slate-800 pb-4 mb-6 flex items-center justify-between">
           <div>
             <span class="font-mono text-xs text-purple-400 font-bold uppercase tracking-wider">BİYOMEKANİK TEST MODÜLÜ</span>
-            <h2 class="text-xl md:text-2xl font-black text-white mt-0.5">Fonksiyonel Anatomi Bilgini Sına</h2>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mt-0.5">Fonksiyonel Anatomi Bilgini Sına</h2>
           </div>
           <div class="text-right font-mono text-xs text-slate-400">
             Soru <span class="text-purple-400 font-bold text-sm">${this.currentIndex + 1}</span> / ${QUIZ_QUESTIONS.length}
@@ -39,7 +39,7 @@ export class FunctionalQuiz {
 
         <!-- Soru Kartı -->
         <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-6 shadow-2xl space-y-6">
-          <h3 class="text-base md:text-lg font-bold text-white leading-relaxed">
+          <h3 class="font-serif text-lg md:text-xl font-bold text-white leading-relaxed">
             ${q.question}
           </h3>
 
@@ -131,7 +131,7 @@ export class FunctionalQuiz {
             🎯
           </div>
           <span class="font-mono text-xs text-purple-400 font-bold uppercase tracking-wider">TEST TAMAMLANDI</span>
-          <h2 class="text-2xl font-black text-white">${title}</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white">${title}</h2>
           <div class="text-5xl font-black font-mono text-white tracking-tight my-2">
             ${this.score} <span class="text-2xl text-slate-500 font-normal">/ ${total}</span>
           </div>

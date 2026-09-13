@@ -54,7 +54,7 @@ export class ExerciseLab {
             <span class="text-slate-600">·</span>
             <span class="text-xs text-slate-400">Kategori Seçimi</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi egzersiz grubunu analiz etmek istiyorsunuz?</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Hangi egzersiz grubunu analiz etmek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
             Aynı harekette tutuş genişliğini 10 cm değiştirdiğinizde veya açıyı supinasyona çevirdiğinizde eklem yükleri nasıl değişir?
           </p>
@@ -105,7 +105,7 @@ export class ExerciseLab {
               ${activeExercise.category}
             </span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">${activeExercise.name}</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">${activeExercise.name}</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">

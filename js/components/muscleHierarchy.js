@@ -51,7 +51,7 @@ export class MuscleHierarchy {
             <span class="text-slate-600">·</span>
             <span class="text-xs text-slate-400">Bölge Seçimi</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi bölgeyi incelemek istiyorsunuz?</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Hangi bölgeyi incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
             Aşağıdan bir anatomik bölge seçin. O bölgeye ait kasları, hareketleri ve biyomekanik bağlantıları adım adım keşfedin.
           </p>
@@ -125,7 +125,7 @@ export class MuscleHierarchy {
               ${regionName} Bölgesi · ${regionMuscles.length} Kas
             </span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">${regionName} Bölgesi</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">${regionName} Bölgesi</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1">
             İncelemek istediğiniz kası seçin veya bu bölgenin temel hareket ve egzersiz haritasına göz atın.
           </p>
@@ -274,7 +274,7 @@ export class MuscleHierarchy {
             </span>
           </div>
 
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2.5">
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight flex items-center gap-2.5">
             <span class="w-3 h-3 rounded-full shrink-0" style="background-color: ${muscle.color || '#00f2fe'};"></span>
             ${muscle.name}
           </h2>

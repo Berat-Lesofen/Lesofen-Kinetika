@@ -51,7 +51,7 @@ export class ClinicalInsights {
             <span class="text-slate-600">·</span>
             <span class="text-xs text-slate-400">Bölge Seçimi</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi bölgedeki hissi incelemek istiyorsunuz?</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Hangi bölgedeki hissi incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
             Kaldırış sırasında oluşan anormal gerilimlerin veya hissedilen kasların ardındaki biyomekanik nedenleri keşfedin.
           </p>
@@ -101,7 +101,7 @@ export class ClinicalInsights {
               ${activeInsight.category}
             </span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Kaldırış & Biyomekanik İpuçları</h2>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight">Kaldırış & Biyomekanik İpuçları</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -123,7 +123,7 @@ export class ClinicalInsights {
           <div class="lg:col-span-7 bg-slate-950 border border-slate-800/90 rounded-2xl p-5 shadow-2xl space-y-4">
             <div>
               <span class="text-[10px] font-mono text-rose-400 uppercase tracking-wider block mb-1">SORU & ANALİZ</span>
-              <h3 class="text-lg font-black text-white leading-snug">${activeInsight.question}</h3>
+              <h3 class="font-serif text-xl font-bold text-white leading-snug">${activeInsight.question}</h3>
               <p class="text-xs text-slate-300 mt-2 leading-relaxed bg-slate-900/80 p-3 rounded-xl border border-slate-800">${activeInsight.summary}</p>
             </div>
 
