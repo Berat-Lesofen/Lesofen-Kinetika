@@ -29,35 +29,35 @@ export class Header {
 
           <!-- Navigasyon Sekmeleri (Desktop) -->
           <nav class="hidden md:flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800/80">
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="anatomy">
-              💪 Kas Sistemi
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="anatomy">
+              Kas Sistemi
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="movements">
-              🔄 Hareket Atlası
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="movements">
+              Hareket Atlası
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="biolab">
-              ⚡ Biyomekanik Lab
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="biolab">
+              Biyomekanik Lab
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="exercises">
-              🏋️ Egzersiz Analizi
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="exercises">
+              Egzersiz Analizi
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="insights">
-              💡 Neden Hissediyorum?
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="insights">
+              Neden Hissediyorum?
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="quiz">
-              🎯 Quiz
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="quiz">
+              Quiz
             </button>
-            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition" data-tab="agenda">
-              📅 Ajanda
+            <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition" data-tab="agenda">
+              Ajanda
             </button>
           </nav>
 
           <!-- Arama & Mobil Menü Butonu -->
           <div class="flex items-center gap-2">
-            <button id="btnOpenSearch" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs flex items-center gap-2 transition">
-              <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <button id="btnOpenSearch" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-xs flex items-center gap-2 transition">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               <span class="hidden sm:inline">Hızlı Keşif...</span>
-              <kbd class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-400 border border-slate-700 hidden sm:inline">⌘K</kbd>
+              <kbd class="text-[10px] font-mono bg-slate-800 px-1.5 py-0.5 rounded text-slate-400 border border-slate-700 hidden sm:inline">⌘K</kbd>
             </button>
 
             <!-- Mobil Sekme Aç/Kapa -->
@@ -69,14 +69,14 @@ export class Header {
 
         <!-- Mobil Menü Çekmecesi -->
         <div id="mobileNavMenu" class="md:hidden hidden pt-3 border-t border-slate-800/80 mt-2.5 pb-2">
-          <div class="grid grid-cols-2 gap-1.5 font-mono text-xs">
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="anatomy">💪 Kas Sistemi</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="movements">🔄 Hareket Atlası</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="biolab">⚡ Biyomekanik Lab</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="exercises">🏋️ Egzersiz Analizi</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="insights">💡 Neden Hissediyorum?</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="quiz">🎯 Quiz</button>
-            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="agenda">📅 Ajanda</button>
+          <div class="grid grid-cols-2 gap-1.5 text-xs">
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="anatomy">Kas Sistemi</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="movements">Hareket Atlası</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="biolab">Biyomekanik Lab</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="exercises">Egzersiz Analizi</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="insights">Neden Hissediyorum?</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="quiz">Quiz</button>
+            <button class="nav-tab-mobile p-2 rounded-lg text-left bg-slate-900 text-slate-300" data-tab="agenda">Ajanda</button>
           </div>
         </div>
       </header>
@@ -85,13 +85,13 @@ export class Header {
       <div id="globalSearchModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-start justify-center pt-20 p-4 animate-fadeIn">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-xl overflow-hidden shadow-2xl">
           <div class="p-3.5 border-b border-slate-800 flex items-center gap-3">
-            <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <svg class="w-5 h-5 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             <input id="modalSearchInput" type="text" placeholder="Kas, hareket veya egzersiz ara..." 
-                   class="w-full bg-transparent text-sm text-white focus:outline-none font-mono placeholder-slate-500">
+                   class="w-full bg-transparent text-sm text-white focus:outline-none placeholder-slate-500">
             <button id="btnCloseSearch" class="text-xs font-mono text-slate-400 hover:text-white px-2 py-1 bg-slate-800 rounded">ESC</button>
           </div>
           <div id="searchResultsList" class="p-3 max-h-96 overflow-y-auto space-y-2">
-            <p class="text-xs font-mono text-slate-500 text-center py-4">Aramak için yazmaya başlayın...</p>
+            <p class="text-xs text-slate-500 text-center py-4">Aramak için yazmaya başlayın...</p>
           </div>
         </div>
       </div>
@@ -109,18 +109,18 @@ export class Header {
     desktopTabs.forEach(tab => {
       const isMatch = tab.dataset.tab === activeTab;
       if (isMatch) {
-        tab.className = "nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20";
+        tab.className = "nav-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-amber-400 border border-slate-700/80 shadow-sm";
       } else {
-        tab.className = "nav-tab px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60";
+        tab.className = "nav-tab px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/40";
       }
     });
 
     mobileTabs.forEach(tab => {
       const isMatch = tab.dataset.tab === activeTab;
       if (isMatch) {
-        tab.className = "nav-tab-mobile p-2 rounded-lg text-left font-mono font-bold bg-cyan-500 text-slate-950";
+        tab.className = "nav-tab-mobile p-2 rounded-lg text-left font-semibold bg-slate-800 text-amber-400 border border-slate-700/80";
       } else {
-        tab.className = "nav-tab-mobile p-2 rounded-lg text-left font-mono text-slate-300 bg-slate-900";
+        tab.className = "nav-tab-mobile p-2 rounded-lg text-left text-slate-300 bg-slate-900";
       }
     });
   }

@@ -39,19 +39,20 @@ export class ExerciseLab {
   // ==========================================
   renderCategorySelector() {
     const categories = [
-      { id: "Göğüs & İtiş", icon: "📐", name: "Göğüs & Horizontal İtiş", count: "Bench Press", desc: "Dar tutuş, normal ve geniş tutuşta dirsek açısı ve triceps/göğüs moment dağılımı" },
-      { id: "Sırt & Çekiş", icon: "🦅", name: "Sırt & Dikey/Yatay Çekiş", count: "Lat Pulldown & Row", desc: "Pronated, nötr ve supinated tutuşta latissimus dorsi ve biceps kaldıraç avantajı" },
-      { id: "Omuz & İzolasyon", icon: "🛡️", name: "Omuz & İzolasyon", count: "Lateral Raise", desc: "Dambıl vs kablo açısı; kol elevasyonunda external moment kolu değişimi" },
-      { id: "Bacak & Kalça", icon: "🦵", name: "Bacak & Kalça (Squat & Menteşe)", count: "Squat, RDL, Hip Thrust", desc: "High-bar vs Low-bar squat; diz ve kalça moment kollarının yarışması" },
-      { id: "Kol & Fleksiyon", icon: "💪", name: "Kol & Dirsek Fleksiyonu", count: "Biceps Curl", desc: "Ayakta bar vs Scott sehpa (Preacher) vs Incline dambıl curl direnç eğrileri" }
+      { id: "Göğüs & İtiş", name: "Göğüs & Horizontal İtiş", count: "Bench Press", desc: "Dar tutuş, normal ve geniş tutuşta dirsek açısı ve triceps/göğüs moment dağılımı" },
+      { id: "Sırt & Çekiş", name: "Sırt & Dikey/Yatay Çekiş", count: "Lat Pulldown & Row", desc: "Pronated, nötr ve supinated tutuşta latissimus dorsi ve biceps kaldıraç avantajı" },
+      { id: "Omuz & İzolasyon", name: "Omuz & İzolasyon", count: "Lateral Raise", desc: "Dambıl vs kablo açısı; kol elevasyonunda external moment kolu değişimi" },
+      { id: "Bacak & Kalça", name: "Bacak & Kalça (Squat & Menteşe)", count: "Squat, RDL, Hip Thrust", desc: "High-bar vs Low-bar squat; diz ve kalça moment kollarının yarışması" },
+      { id: "Kol & Fleksiyon", name: "Kol & Dirsek Fleksiyonu", count: "Biceps Curl", desc: "Ayakta bar vs Scott sehpa (Preacher) vs Incline dambıl curl direnç eğrileri" }
     ];
 
     this.container.innerHTML = `
       <div class="exercise-cat-selector max-w-4xl mx-auto p-4 md:p-6 space-y-6 animate-fadeIn">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider">EGZERSİZ ANALİZİ</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30">Adım 1 / 2</span>
+            <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">EGZERSİZ ANALİZİ</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-xs text-slate-400">Kategori Seçimi</span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi egzersiz grubunu analiz etmek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
@@ -63,10 +64,9 @@ export class ExerciseLab {
           ${categories.map(c => `
             <div class="cat-card p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-900/90 transition-all duration-150 cursor-pointer group shadow-sm hover:shadow-amber-500/5 hover:-translate-y-0.5" data-cat="${c.id}">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-2xl">${c.icon}</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-amber-400 border border-amber-500/20">${c.count}</span>
+                <h4 class="text-sm font-bold text-white group-hover:text-amber-300 transition">${c.name}</h4>
+                <span class="text-[11px] text-slate-500">${c.count}</span>
               </div>
-              <h4 class="text-sm font-bold text-white group-hover:text-amber-300 transition mb-1">${c.name}</h4>
               <p class="text-[11px] text-slate-400 leading-snug">${c.desc}</p>
             </div>
           `).join('')}
@@ -98,10 +98,10 @@ export class ExerciseLab {
         <!-- Başlık & Geri Dönüş -->
         <div class="border-b border-slate-800 pb-4">
           <div class="flex items-center justify-between mb-2">
-            <button id="btnBackToCats" class="text-xs font-mono text-slate-400 hover:text-amber-400 transition flex items-center gap-1">
+            <button id="btnBackToCats" class="text-xs font-medium text-slate-400 hover:text-amber-400 transition flex items-center gap-1">
               ← Tüm Egzersiz Gruplarına Dön
             </button>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30">
+            <span class="text-xs text-slate-400">
               ${activeExercise.category}
             </span>
           </div>

@@ -28,10 +28,10 @@ export class BreadcrumbNav {
     this.container.classList.remove('hidden');
 
     this.container.innerHTML = `
-      <div class="breadcrumb-bar bg-slate-950/90 border-b border-slate-800/80 px-4 py-2 flex items-center justify-between gap-3 text-xs font-mono animate-fadeIn">
+      <div class="breadcrumb-bar bg-slate-950/90 border-b border-slate-800/80 px-4 py-2 flex items-center justify-between gap-3 text-xs animate-fadeIn">
         <!-- Sol: Geri Butonu ve Yol Haritası -->
         <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar py-0.5">
-          <button id="btnBreadcrumbBack" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 transition flex items-center gap-1 shrink-0 font-bold">
+          <button id="btnBreadcrumbBack" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 transition flex items-center gap-1 shrink-0 font-medium">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             <span>Geri</span>
           </button>
@@ -42,7 +42,7 @@ export class BreadcrumbNav {
               return `
                 <button class="crumb-btn transition ${
                   isLast 
-                    ? 'text-cyan-400 font-bold cursor-default' 
+                    ? 'text-slate-200 font-medium cursor-default' 
                     : 'text-slate-400 hover:text-slate-200 hover:underline cursor-pointer'
                 }" data-id="${crumb.id}">
                   ${crumb.label}
@@ -55,7 +55,7 @@ export class BreadcrumbNav {
 
         <!-- Sağ: Derinlik Seviyesi Rozeti -->
         <div class="hidden sm:flex items-center gap-1.5 shrink-0">
-          <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-400 bg-cyan-500/10">
+          <span class="text-[11px] text-slate-500 font-medium">
             Seviye ${crumbs.length}
           </span>
         </div>

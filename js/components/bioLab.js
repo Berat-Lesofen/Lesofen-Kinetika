@@ -90,13 +90,15 @@ export class BiomechanicsLab {
         <!-- Üst Başlık & Simülatör Seçici -->
         <div class="border-b border-slate-800 pb-5 mb-6">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
-            <div class="flex items-center gap-2">
-              <span class="font-mono text-xs text-amber-400 font-bold uppercase tracking-wider">BİYOMEKANİK LABORATUVARI</span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Vektör & Tork Motoru</span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">4 Gelişmiş Model</span>
+            <div class="flex items-center gap-2.5">
+              <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">BİYOMEKANİK LABORATUVARI</span>
+              <span class="text-slate-600">·</span>
+              <span class="text-xs text-slate-400">Vektör & Tork Motoru</span>
+              <span class="text-slate-600">·</span>
+              <span class="text-xs text-slate-400">4 Model</span>
             </div>
-            <button id="btnOpenAssumptions" class="px-3 py-1.5 rounded-lg font-mono text-xs font-semibold bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 cursor-pointer">
-              <span>📋</span> Metodoloji & Varsayımlar
+            <button id="btnOpenAssumptions" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700/80 hover:border-amber-400/60 text-slate-300 hover:text-white transition flex items-center gap-1.5 cursor-pointer">
+              Metodoloji & Varsayımlar
             </button>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Kuvvet, Moment Kolu ve Eklem Torku</h2>
@@ -107,53 +109,49 @@ export class BiomechanicsLab {
 
           <!-- 4 Simülatör Sekmesi -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 mt-5">
-            <button id="simTabLateral" class="p-3 rounded-xl font-mono text-xs font-semibold border transition text-left cursor-pointer ${
+            <button id="simTabLateral" class="p-3 rounded-xl text-xs font-semibold border transition text-left cursor-pointer ${
               this.state.activeSim === 'lateral_raise' 
-                ? 'bg-amber-500/20 border-amber-500/70 text-amber-300 shadow-lg shadow-amber-500/10' 
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:bg-slate-800/80 hover:text-slate-200'
+                ? 'bg-slate-800 border-amber-500/80 text-amber-300 shadow-sm' 
+                : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
             }">
               <div class="flex items-center justify-between mb-1">
-                <span class="text-[10px] text-amber-400/80 font-bold">01 · OMUZ</span>
-                <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">READY</span>
+                <span class="text-[10px] text-amber-400/80 font-bold uppercase tracking-wider">01 · Omuz</span>
               </div>
               <span class="block font-bold text-sm text-white">Lateral Raise</span>
               <span class="block text-[10px] text-slate-400 truncate mt-0.5">Omuz Elevasyonu & Deltoid</span>
             </button>
 
-            <button id="simTabBiceps" class="p-3 rounded-xl font-mono text-xs font-semibold border transition text-left cursor-pointer ${
+            <button id="simTabBiceps" class="p-3 rounded-xl text-xs font-semibold border transition text-left cursor-pointer ${
               this.state.activeSim === 'biceps_curl' 
-                ? 'bg-cyan-500/20 border-cyan-500/70 text-cyan-300 shadow-lg shadow-cyan-500/10' 
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:bg-slate-800/80 hover:text-slate-200'
+                ? 'bg-slate-800 border-cyan-500/80 text-cyan-300 shadow-sm' 
+                : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
             }">
               <div class="flex items-center justify-between mb-1">
-                <span class="text-[10px] text-cyan-400/80 font-bold">02 · DİRSEK</span>
-                <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">READY</span>
+                <span class="text-[10px] text-cyan-400/80 font-bold uppercase tracking-wider">02 · Dirsek</span>
               </div>
               <span class="block font-bold text-sm text-white">Biceps Curl</span>
               <span class="block text-[10px] text-slate-400 truncate mt-0.5">3 Kas & Önkol Rotasyonu</span>
             </button>
 
-            <button id="simTabSquat" class="p-3 rounded-xl font-mono text-xs font-semibold border transition text-left cursor-pointer ${
+            <button id="simTabSquat" class="p-3 rounded-xl text-xs font-semibold border transition text-left cursor-pointer ${
               this.state.activeSim === 'squat_lever' 
-                ? 'bg-emerald-500/20 border-emerald-500/70 text-emerald-300 shadow-lg shadow-emerald-500/10' 
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:bg-slate-800/80 hover:text-slate-200'
+                ? 'bg-slate-800 border-emerald-500/80 text-emerald-300 shadow-sm' 
+                : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
             }">
               <div class="flex items-center justify-between mb-1">
-                <span class="text-[10px] text-emerald-400/80 font-bold">03 · KALÇA & DİZ</span>
-                <span class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">READY</span>
+                <span class="text-[10px] text-emerald-400/80 font-bold uppercase tracking-wider">03 · Kalça & Diz</span>
               </div>
               <span class="block font-bold text-sm text-white">Squat Kaldıracı</span>
               <span class="block text-[10px] text-slate-400 truncate mt-0.5">Fry 2003 Diz/Kalça Takası</span>
             </button>
 
-            <button id="simTabBench" class="p-3 rounded-xl font-mono text-xs font-semibold border transition text-left cursor-pointer ${
+            <button id="simTabBench" class="p-3 rounded-xl text-xs font-semibold border transition text-left cursor-pointer ${
               this.state.activeSim === 'bench_mechanics' 
-                ? 'bg-rose-500/20 border-rose-500/70 text-rose-300 shadow-lg shadow-rose-500/10' 
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:bg-slate-800/80 hover:text-slate-200'
+                ? 'bg-slate-800 border-rose-500/80 text-rose-300 shadow-sm' 
+                : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
             }">
               <div class="flex items-center justify-between mb-1">
-                <span class="text-[10px] text-rose-400/80 font-bold">04 · GÖĞÜS & İTİŞ</span>
-                <span class="text-[9px] px-1.5 py-0.2 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20">READY</span>
+                <span class="text-[10px] text-rose-400/80 font-bold uppercase tracking-wider">04 · Göğüs & İtiş</span>
               </div>
               <span class="block font-bold text-sm text-white">Bench Press</span>
               <span class="block text-[10px] text-slate-400 truncate mt-0.5">McLaughlin 1984 J-Curve</span>
@@ -216,7 +214,7 @@ export class BiomechanicsLab {
           <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 sm:p-5 shadow-2xl relative overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3 mb-3">
               <div class="min-w-0">
-                <span class="text-[10px] font-mono text-amber-400 font-bold tracking-wider">PROTOTYPE 01 · OMUZ ELEVASYONU</span>
+                <span class="text-[10px] text-amber-400/90 font-bold uppercase tracking-wider">Model 01 · Omuz Elevasyonu</span>
                 <h3 class="text-sm sm:text-base font-bold text-white break-words">Lateral Raise — Moment Kolu Zinciri</h3>
               </div>
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-400">
@@ -349,8 +347,8 @@ export class BiomechanicsLab {
         <div class="lg:col-span-5 space-y-4">
           <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 sm:p-4 space-y-3">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-              <h4 class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">Canlı Biyomekanik Telemetri</h4>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">τ = F × r</span>
+              <h4 class="text-xs font-semibold text-cyan-400">Canlı Biyomekanik Telemetri</h4>
+              <span class="text-xs font-mono text-cyan-400/80">τ = F × r</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5">
@@ -377,8 +375,8 @@ export class BiomechanicsLab {
 
             <div class="bg-slate-950/90 border border-rose-500/30 rounded-xl p-3 space-y-1">
               <div class="flex flex-wrap items-center justify-between gap-1">
-                <span class="text-[11px] font-mono font-bold text-rose-300">Modelled Deltoid Force Demand</span>
-                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 shrink-0">MODEL VARSAYIMI</span>
+                <span class="text-[11px] font-semibold text-rose-300">Modelled Deltoid Force Demand</span>
+                <span class="text-[10px] text-rose-400/80 shrink-0">Model varsayımı</span>
               </div>
               <div id="metricDeltoidDemand" class="text-base sm:text-lg font-mono font-black text-rose-400">0 N (0.0 kgf)</div>
               <p class="text-[10px] text-slate-400 leading-tight">
@@ -418,7 +416,7 @@ export class BiomechanicsLab {
           <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 sm:p-5 shadow-2xl relative overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3 mb-3">
               <div class="min-w-0">
-                <span class="text-[10px] font-mono text-cyan-400 font-bold tracking-wider">PROTOTYPE 02 · DİRSEK FLEKSİYONU & ROTASYON</span>
+                <span class="text-[10px] text-cyan-400/90 font-bold uppercase tracking-wider">Model 02 · Dirsek Fleksiyonu & Rotasyon</span>
                 <h3 class="text-sm sm:text-base font-bold text-white break-words">Biceps Curl — 3 Ayrı Kas Anatomisi</h3>
               </div>
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-400">
@@ -579,8 +577,8 @@ export class BiomechanicsLab {
         <div class="lg:col-span-5 space-y-4">
           <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 sm:p-4 space-y-3">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-              <h4 class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">Canlı Dirsek Telemetrisi</h4>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">3 Kas Çözünürlüğü</span>
+              <h4 class="text-xs font-semibold text-cyan-400">Canlı Dirsek Telemetrisi</h4>
+              <span class="text-xs font-mono text-cyan-400/80">3 Kas Çözünürlüğü</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5">
@@ -652,7 +650,7 @@ export class BiomechanicsLab {
           <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 sm:p-5 shadow-2xl relative overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3 mb-3">
               <div class="min-w-0">
-                <span class="text-[10px] font-mono text-emerald-400 font-bold tracking-wider">PROTOTYPE 03 · KAPALI KİNETİK ZİNCİR</span>
+                <span class="text-[10px] text-emerald-400/90 font-bold uppercase tracking-wider">Model 03 · Kapalı Kinetik Zincir</span>
                 <h3 class="text-sm sm:text-base font-bold text-white break-words">Squat — Diz/Kalça Moment Kolu Takası (Fry 2003)</h3>
               </div>
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-400">
@@ -802,8 +800,8 @@ export class BiomechanicsLab {
         <div class="lg:col-span-5 space-y-4">
           <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 sm:p-4 space-y-3">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-              <h4 class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Squat Kinetik Telemetrisi</h4>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Kapalı Zincir</span>
+              <h4 class="text-xs font-semibold text-emerald-400">Squat Kinetik Telemetrisi</h4>
+              <span class="text-xs font-mono text-emerald-400/80">Kapalı Zincir</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5">
@@ -873,7 +871,7 @@ export class BiomechanicsLab {
           <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 sm:p-5 shadow-2xl relative overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3 mb-3">
               <div class="min-w-0">
-                <span class="text-[10px] font-mono text-rose-400 font-bold tracking-wider">PROTOTYPE 04 · BAR YOLU TRAJEKTORİSİ</span>
+                <span class="text-[10px] text-rose-400/90 font-bold uppercase tracking-wider">Model 04 · Bar Yolu Trajektorisi</span>
                 <h3 class="text-sm sm:text-base font-bold text-white break-words">Bench Press — McLaughlin 1984 Elit J-Curve</h3>
               </div>
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-slate-400">
@@ -1008,8 +1006,8 @@ export class BiomechanicsLab {
         <div class="lg:col-span-5 space-y-4">
           <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 sm:p-4 space-y-3">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-              <h4 class="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">Bench Press Telemetrisi</h4>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20">Sagital & Transvers</span>
+              <h4 class="text-xs font-semibold text-rose-400">Bench Press Telemetrisi</h4>
+              <span class="text-xs font-mono text-rose-400/80">Sagital & Transvers</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-2.5">
@@ -1036,8 +1034,8 @@ export class BiomechanicsLab {
 
             <div class="bg-slate-950/90 border border-rose-500/30 rounded-xl p-3 space-y-1">
               <div class="flex flex-wrap items-center justify-between gap-1">
-                <span class="text-[11px] font-mono font-bold text-rose-300">McLaughlin (1984) Bar Yolu Kinematiği</span>
-                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 shrink-0">ELİT SPORCU BULGUSU</span>
+                <span class="text-[11px] font-semibold text-rose-300">McLaughlin (1984) Bar Yolu Kinematiği</span>
+                <span class="text-[10px] text-rose-400/80 shrink-0">Elit sporcu bulgusu</span>
               </div>
               <p class="text-[10px] text-slate-400 leading-tight">
                 Elit sporcular barı göğüsten iterken hızla geriye omuz eklemine doğru yönlendirir (J-Curve). Bu sayede kritik takılma noktasında (sticking region) ve kilitlenmede omuz moment kolu sıfıra yaklaşır.
@@ -1070,10 +1068,8 @@ export class BiomechanicsLab {
     return `
       <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-3">
         <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-          <h4 class="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-            <span>🔬</span> 4-Kademeli Bilimsel Metodoloji
-          </h4>
-          <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">RİGÖR SINIFLANDIRMA</span>
+          <h4 class="text-xs font-semibold text-white tracking-tight">4-Kademeli Bilimsel Metodoloji</h4>
+          <span class="text-[11px] text-slate-400">Metodoloji Sınıflandırması</span>
         </div>
 
         <div class="space-y-2 text-xs">
@@ -1286,7 +1282,7 @@ export class BiomechanicsLab {
                       <strong class="text-cyan-400">${src.author} (${src.year})</strong><br>
                       <span class="text-slate-300 italic">${src.title}</span><br>
                       <span class="text-slate-500 text-[11px]">${src.journal}</span>
-                      ${src.note ? `<div class="text-[10px] text-amber-300/80 mt-1">📌 ${src.note}</div>` : ''}
+                      ${src.note ? `<div class="text-[10px] text-amber-300/80 mt-1">Not: ${src.note}</div>` : ''}
                     </li>
                   `).join('') || ''}
                 </ul>

@@ -38,17 +38,18 @@ export class ClinicalInsights {
   // ==========================================
   renderRegionSelector() {
     const regions = [
-      { id: "Omuz", icon: "🛡️", name: "Omuz & Üst Sırt", count: "2 Soru", desc: "Lateral raise sırasında trapez baskısı ve bench press omuz batması" },
-      { id: "Bacak & Kalça", icon: "🦵", name: "Bacak & Kalça", count: "1 Soru", desc: "Squatta hamstring kasılmaması (Lombard Paradoksu)" },
-      { id: "Core & Sırt", icon: "🏛️", name: "Bel & Omurga", count: "1 Soru", desc: "Deadlift sırasında bel omurlarında oluşan aşırı moment baskısı" }
+      { id: "Omuz", name: "Omuz & Üst Sırt", count: "2 Soru", desc: "Lateral raise sırasında trapez baskısı ve bench press omuz batması" },
+      { id: "Bacak & Kalça", name: "Bacak & Kalça", count: "1 Soru", desc: "Squatta hamstring kasılmaması (Lombard Paradoksu)" },
+      { id: "Core & Sırt", name: "Bel & Omurga", count: "1 Soru", desc: "Deadlift sırasında bel omurlarında oluşan aşırı moment baskısı" }
     ];
 
     this.container.innerHTML = `
       <div class="insights-selector max-w-4xl mx-auto p-4 md:p-6 space-y-6 animate-fadeIn">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="font-mono text-xs text-rose-400 font-bold uppercase tracking-wider">NEDEN HİSSEDİYORUM?</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-500/10 text-rose-300 border border-rose-500/30">Adım 1 / 2</span>
+            <span class="text-xs text-rose-400 font-bold uppercase tracking-wider">NEDEN HİSSEDİYORUM?</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-xs text-slate-400">Bölge Seçimi</span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi bölgedeki hissi incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
@@ -60,10 +61,9 @@ export class ClinicalInsights {
           ${regions.map(r => `
             <div class="insight-reg-card p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-rose-500/50 hover:bg-slate-900/90 transition-all duration-150 cursor-pointer group shadow-sm hover:shadow-rose-500/5 hover:-translate-y-0.5" data-region="${r.id}">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-2xl">${r.icon}</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-rose-400 border border-rose-500/20">${r.count}</span>
+                <h4 class="text-sm font-bold text-white group-hover:text-rose-300 transition">${r.name}</h4>
+                <span class="text-[11px] text-slate-500">${r.count}</span>
               </div>
-              <h4 class="text-sm font-bold text-white group-hover:text-rose-300 transition mb-1">${r.name}</h4>
               <p class="text-[11px] text-slate-400 leading-snug">${r.desc}</p>
             </div>
           `).join('')}
@@ -94,10 +94,10 @@ export class ClinicalInsights {
         <!-- Başlık & Geri Dönüş -->
         <div class="border-b border-slate-800 pb-4">
           <div class="flex items-center justify-between mb-2">
-            <button id="btnBackToInsRegions" class="text-xs font-mono text-slate-400 hover:text-rose-400 transition flex items-center gap-1">
+            <button id="btnBackToInsRegions" class="text-xs font-medium text-slate-400 hover:text-rose-400 transition flex items-center gap-1">
               ← Tüm Bölgelere Dön
             </button>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/30">
+            <span class="text-xs text-slate-400">
               ${activeInsight.category}
             </span>
           </div>

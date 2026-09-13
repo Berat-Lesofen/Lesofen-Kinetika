@@ -39,21 +39,22 @@ export class MovementAtlas {
   // ==========================================
   renderJointSelector() {
     const joints = [
-      { id: "Omuz", icon: "🛡️", name: "Omuz Kompleksi", count: "7 Hareket", desc: "Glenohumeral eklem fleksiyonu, ekstansiyonu, abdüksiyonu ve scaption" },
-      { id: "Dirsek", icon: "🦾", name: "Dirsek & Önkol", count: "4 Hareket", desc: "Dirsek fleksiyonu, ekstansiyonu, önkol supinasyonu ve pronasyonu" },
-      { id: "Skapula", icon: "🦅", name: "Skapulotorasik (Kürek Kemiği)", count: "5 Hareket", desc: "Skapular elevasyon, depresyon, retraksiyon ve yukarı rotasyon" },
-      { id: "Kalça", icon: "⚡", name: "Kalça Eklemi", count: "6 Hareket", desc: "Kalça fleksiyonu, ekstansiyonu, abdüksiyonu ve dış rotasyonu" },
-      { id: "Diz", icon: "🦵", name: "Diz Eklemi", count: "2 Hareket", desc: "Diz fleksiyonu (hamstring) ve diz ekstansiyonu (quadriceps)" },
-      { id: "Ayak Bileği", icon: "🦶", name: "Ayak Bileği", count: "3 Hareket", desc: "Plantar fleksiyon, dorsifleksiyon (kaval) ve inversiyon" },
-      { id: "Omurga", icon: "🏛️", name: "Omurga & Core", count: "4 Hareket", desc: "Lomber fleksiyon, ekstansiyon, lateral bükülme ve gövde rotasyonu" }
+      { id: "Omuz", name: "Omuz Kompleksi", count: "7 Hareket", desc: "Glenohumeral eklem fleksiyonu, ekstansiyonu, abdüksiyonu ve scaption" },
+      { id: "Dirsek", name: "Dirsek & Önkol", count: "4 Hareket", desc: "Dirsek fleksiyonu, ekstansiyonu, önkol supinasyonu ve pronasyonu" },
+      { id: "Skapula", name: "Skapulotorasik (Kürek Kemiği)", count: "5 Hareket", desc: "Skapular elevasyon, depresyon, retraksiyon ve yukarı rotasyon" },
+      { id: "Kalça", name: "Kalça Eklemi", count: "6 Hareket", desc: "Kalça fleksiyonu, ekstansiyonu, abdüksiyonu ve dış rotasyonu" },
+      { id: "Diz", name: "Diz Eklemi", count: "2 Hareket", desc: "Diz fleksiyonu (hamstring) ve diz ekstansiyonu (quadriceps)" },
+      { id: "Ayak Bileği", name: "Ayak Bileği", count: "3 Hareket", desc: "Plantar fleksiyon, dorsifleksiyon (kaval) ve inversiyon" },
+      { id: "Omurga", name: "Omurga & Core", count: "4 Hareket", desc: "Lomber fleksiyon, ekstansiyon, lateral bükülme ve gövde rotasyonu" }
     ];
 
     this.container.innerHTML = `
       <div class="movement-selector max-w-4xl mx-auto p-4 md:p-6 space-y-6 animate-fadeIn">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="font-mono text-xs text-indigo-400 font-bold uppercase tracking-wider">HAREKET ATLASI</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">Adım 1 / 2</span>
+            <span class="text-xs text-indigo-400 font-bold uppercase tracking-wider">HAREKET ATLASI</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-xs text-slate-400">Eklem Seçimi</span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi eklem hareketini incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
@@ -65,10 +66,9 @@ export class MovementAtlas {
           ${joints.map(j => `
             <div class="joint-card p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all duration-150 cursor-pointer group shadow-sm hover:shadow-indigo-500/5 hover:-translate-y-0.5" data-joint="${j.id}">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-2xl">${j.icon}</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700/60">${j.count}</span>
+                <h4 class="text-sm font-bold text-white group-hover:text-indigo-300 transition">${j.name}</h4>
+                <span class="text-[11px] text-slate-500">${j.count}</span>
               </div>
-              <h4 class="text-sm font-bold text-white group-hover:text-indigo-300 transition mb-1">${j.name}</h4>
               <p class="text-[11px] text-slate-400 leading-snug">${j.desc}</p>
             </div>
           `).join('')}
@@ -98,10 +98,10 @@ export class MovementAtlas {
         <!-- Başlık & Geri Dönüş -->
         <div class="border-b border-slate-800 pb-4">
           <div class="flex items-center justify-between mb-2">
-            <button id="btnBackToJoints" class="text-xs font-mono text-slate-400 hover:text-indigo-400 transition flex items-center gap-1">
+            <button id="btnBackToJoints" class="text-xs font-medium text-slate-400 hover:text-indigo-400 transition flex items-center gap-1">
               ← Tüm Eklemlere Dön
             </button>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+            <span class="text-xs text-slate-400">
               ${jointName} Eklemi · ${movements.length} Hareket
             </span>
           </div>

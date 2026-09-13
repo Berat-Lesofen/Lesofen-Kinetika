@@ -47,8 +47,9 @@ export class MuscleHierarchy {
         <!-- Başlık -->
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider">KAS SİSTEMİ</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">Adım 1 / 3</span>
+            <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">KAS SİSTEMİ</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-xs text-slate-400">Bölge Seçimi</span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Hangi bölgeyi incelemek istiyorsunuz?</h2>
           <p class="text-xs md:text-sm text-slate-400 mt-1 max-w-xl">
@@ -60,7 +61,7 @@ export class MuscleHierarchy {
         <div class="space-y-6">
           ${regionalGroups.map(group => `
             <div class="space-y-3">
-              <h3 class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+              <h3 class="text-xs font-semibold text-slate-400 tracking-wider flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                 ${group.title}
               </h3>
@@ -68,10 +69,9 @@ export class MuscleHierarchy {
                 ${group.regions.map(r => `
                   <div class="region-card p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all duration-150 cursor-pointer group shadow-sm hover:shadow-cyan-500/5 hover:-translate-y-0.5" data-region="${r.id}">
                     <div class="flex items-center justify-between mb-2">
-                      <span class="text-2xl">${r.icon}</span>
-                      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700/60">${r.count} Kas</span>
+                      <h4 class="text-sm font-bold text-white group-hover:text-cyan-300 transition">${r.name}</h4>
+                      <span class="text-[11px] text-slate-500">${r.count} Kas</span>
                     </div>
-                    <h4 class="text-sm font-bold text-white group-hover:text-cyan-300 transition mb-1">${r.name}</h4>
                     <p class="text-[11px] text-slate-400 leading-snug">${r.desc}</p>
                   </div>
                 `).join('')}
@@ -118,11 +118,11 @@ export class MuscleHierarchy {
         <!-- Üst Başlık & Geri Dönüş -->
         <div class="border-b border-slate-800 pb-4">
           <div class="flex items-center justify-between mb-2">
-            <button id="btnBackToRegions" class="text-xs font-mono text-slate-400 hover:text-cyan-400 transition flex items-center gap-1">
+            <button id="btnBackToRegions" class="text-xs font-medium text-slate-400 hover:text-cyan-400 transition flex items-center gap-1">
               ← Tüm Bölgelere Dön
             </button>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-              Adım 2 / 3 · Bölge Merkezi
+            <span class="text-xs text-slate-400">
+              ${regionName} Bölgesi · ${regionMuscles.length} Kas
             </span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">${regionName} Bölgesi</h2>
