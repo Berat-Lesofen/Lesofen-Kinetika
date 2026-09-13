@@ -161,6 +161,7 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Editorial Hero Display Typography */
 .font-hero-display {
   font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.025em;
   font-feature-settings: 'liga' 1, 'kern' 1;
 }
 

@@ -26,7 +26,7 @@ export class PortalHome {
           <div class="text-xs text-slate-500 font-medium tracking-wider uppercase mb-3">
             Hareket · Fonksiyonel Anatomi · Biyomekanik
           </div>
-          <h1 class="font-display font-hero-display text-[1.95rem] sm:text-5xl md:text-6xl lg:text-[4.15rem] text-[#f5f5f4] font-normal tracking-tight leading-[1.08] sm:leading-[1.12] mb-4">
+          <h1 class="font-display font-hero-display text-[1.95rem] sm:text-5xl md:text-6xl lg:text-[4.15rem] text-[#f5f5f4] font-normal tracking-wide leading-[1.08] sm:leading-[1.12] mb-4">
             <span class="block">Vücut hareket ederken</span>
             <span class="block">içeride ne oluyor?</span>
           </h1>
