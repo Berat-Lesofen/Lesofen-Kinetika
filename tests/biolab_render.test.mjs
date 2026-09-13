@@ -1,4 +1,4 @@
-﻿/**
+/**
  * LESOFEN KINETIKA - Automated Biomechanics Lab Render & Simulation Test Suite
  * Asserts automatic rendering, zero blank states, 4 simulator models, 
  * reactive state synchronization, and exercise/movement/muscle route mappings.
@@ -63,6 +63,33 @@ state.openBioLab('bench_mechanics', 'Flat Barbell Bench Press Mekaniği');
 assert(state.getState().activeTab === 'biolab', 'activeTab switched to biolab');
 assert(state.getState().activeBioSim === 'bench_mechanics', 'activeBioSim set to bench_mechanics in state');
 assert(lab.state.activeSim === 'bench_mechanics', 'BiomechanicsLab synced activeSim from state');
+
+// 3b. CANVAS BINDING & RENDERER INSTANTIATION CHECK
+console.log("\n--- 3b. Canvas Binding & Renderer Instantiation Check ---");
+const mockGrad = { addColorStop: () => {} };
+const mockCtx = new Proxy({}, {
+  get: (target, prop) => {
+    if (prop === 'measureText') return () => ({ width: 50 });
+    if (prop === 'createLinearGradient' || prop === 'createRadialGradient') return () => mockGrad;
+    return () => {};
+  }
+});
+const mockCanvas = {
+  getContext: () => mockCtx,
+  getBoundingClientRect: () => ({ width: 600, height: 450 }),
+  parentElement: { clientWidth: 600, clientHeight: 450 }
+};
+
+Object.entries(lab.models).forEach(([key, model]) => {
+  model.setCanvas(mockCanvas);
+  assert(model.canvas === mockCanvas, `Model '${key}' canvas property attached`);
+  assert(model.renderer !== null, `Model '${key}' renderer successfully instantiated`);
+  assert(typeof model.renderer.render === 'function', `Model '${key}' renderer has render method`);
+  assert(typeof model.resize === 'function', `Model '${key}' has resize method`);
+  model.resize();
+  model.render();
+  assert(true, `Model '${key}' resize() and render() execute cleanly without throwing`);
+});
 assert(mockContainer.innerHTML.includes('Mekanik Modeli'), 'DOM rendered Bench Press simulator content');
 
 state.openBioLab('squat_lever', 'Squat Kaldıracı');

@@ -23,7 +23,7 @@ export class LateralRaiseRenderer {
     this.showBones = true;
 
     // Scaling
-    this.dpr = window.devicePixelRatio || 1;
+    this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   }
 
   resize() {

@@ -208,6 +208,20 @@ export class BenchPressModel {
     this.update();
   }
 
+  setCanvas(canvas) {
+    this.canvas = canvas || null;
+    if (this.canvas) {
+      if (!this.renderer) {
+        this.renderer = new BenchPressRenderer(this.canvas);
+      } else {
+        this.renderer.canvas = this.canvas;
+        this.renderer.ctx = this.canvas.getContext ? this.canvas.getContext('2d') : null;
+      }
+    } else {
+      this.renderer = null;
+    }
+  }
+
   destroy() {
     this.pause();
     this.listeners.clear();

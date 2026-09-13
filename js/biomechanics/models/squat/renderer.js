@@ -21,7 +21,7 @@ export class SquatRenderer {
     this.showAngles = true;
     this.showCom = true;
 
-    this.dpr = window.devicePixelRatio || 1;
+    this.dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   }
 
   resize() {

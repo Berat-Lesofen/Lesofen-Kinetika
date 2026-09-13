@@ -13,6 +13,10 @@ import { LateralRaiseModel } from '../biomechanics/models/lateralRaise/model.js'
 import { BicepsCurlModel } from '../biomechanics/models/bicepsCurl/model.js';
 import { SquatModel } from '../biomechanics/models/squat/model.js';
 import { BenchPressModel } from '../biomechanics/models/benchPress/model.js';
+import { LateralRaiseRenderer } from '../biomechanics/models/lateralRaise/renderer.js';
+import { BicepsCurlRenderer } from '../biomechanics/models/bicepsCurl/renderer.js';
+import { SquatRenderer } from '../biomechanics/models/squat/renderer.js';
+import { BenchPressRenderer } from '../biomechanics/models/benchPress/renderer.js';
 import { COLORS } from '../biomechanics/shared/constants.js';
 
 export class BiomechanicsLab {
@@ -70,6 +74,10 @@ export class BiomechanicsLab {
 
   render() {
     if (!this.container) return;
+
+    if (this.activeModel && typeof this.activeModel.pause === 'function') {
+      this.activeModel.pause();
+    }
 
     const currentBioSim = state?.getState()?.activeBioSim;
     if (currentBioSim) {
@@ -1295,6 +1303,9 @@ export class BiomechanicsLab {
       toggleForces.addEventListener('change', (e) => {
         if (this.activeModel.renderer) {
           this.activeModel.renderer.showForces = e.target.checked;
+          if ('showBarPath' in this.activeModel.renderer) {
+            this.activeModel.renderer.showBarPath = e.target.checked;
+          }
           this.activeModel.render();
         }
       });
@@ -1450,8 +1461,23 @@ export class BiomechanicsLab {
     }
 
     if (canvas && this.activeModel) {
-      this.activeModel.canvas = canvas;
-      if (this.activeModel.renderer) {
+      if (typeof this.activeModel.setCanvas === 'function') {
+        this.activeModel.setCanvas(canvas);
+      } else {
+        this.activeModel.canvas = canvas;
+      }
+
+      if (!this.activeModel.renderer) {
+        if (this.state.activeSim === 'lateral_raise') {
+          this.activeModel.renderer = new LateralRaiseRenderer(canvas);
+        } else if (this.state.activeSim === 'biceps_curl') {
+          this.activeModel.renderer = new BicepsCurlRenderer(canvas);
+        } else if (this.state.activeSim === 'squat_lever') {
+          this.activeModel.renderer = new SquatRenderer(canvas);
+        } else if (this.state.activeSim === 'bench_mechanics') {
+          this.activeModel.renderer = new BenchPressRenderer(canvas);
+        }
+      } else {
         this.activeModel.renderer.canvas = canvas;
         this.activeModel.renderer.ctx = canvas.getContext ? canvas.getContext('2d') : null;
       }
@@ -1467,15 +1493,29 @@ export class BiomechanicsLab {
       this.unsubscribeActiveModel = this.activeModel.subscribe((data) => {
         this.onModelUpdate(data);
       });
+
+      // İlk yükleme telemetrisini ve eğri çizimini hemen tetikle
+      this.onModelUpdate(this.activeModel.getCurrentState());
     }
 
     this.handleResize();
+
+    // DOM yerleşimi ve bounding box tamamlandıktan sonra hassas DPR render
+    if (typeof window !== 'undefined') {
+      requestAnimationFrame(() => {
+        this.handleResize();
+        if (this.activeModel) {
+          this.activeModel.render();
+        }
+      });
+    }
   }
 
   handleResize() {
     if (!this.container) return;
     if (this.activeModel) {
       this.activeModel.resize();
+      this.activeModel.render();
     }
     if (this.curveCanvas && this.curveCtx) {
       const rect = typeof this.curveCanvas.getBoundingClientRect === 'function' ? this.curveCanvas.getBoundingClientRect() : null;

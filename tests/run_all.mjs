@@ -1,7 +1,7 @@
 /**
  * LESOFEN KINETIKA - MASTER TEST SUITE RUNNER
- * Executes Data Integrity (33 tests), BioLab Rendering (115 tests),
- * and Biomechanics Mathematical Engines (29 tests). Total: 177 tests.
+ * Executes Data Integrity (33 tests), BioLab Rendering (135 tests),
+ * and Biomechanics Mathematical Engines (29 tests). Total: 197 tests.
  */
 
 import { execSync } from 'child_process';
@@ -32,7 +32,7 @@ for (const suite of testSuites) {
 
 console.log("\n=======================================================");
 if (totalFailed === 0) {
-  console.log("🏆 ALL 3 TEST SUITES (177/177 TESTS) PASSED SUCCESSFULLY!");
+  console.log("🏆 ALL 3 TEST SUITES (197/197 TESTS) PASSED SUCCESSFULLY!");
   console.log("=======================================================\n");
   process.exit(0);
 } else {

@@ -51,6 +51,9 @@ class StateManager {
   setState(partialState) {
     this.state = { ...this.state, ...partialState };
     this.notify();
+    if (typeof window !== 'undefined' && (partialState.activeTab || partialState.breadcrumbs || partialState.muscleFlowLevel || partialState.movementFlowLevel || partialState.exerciseFlowLevel || partialState.insightFlowLevel || partialState.activeBioSim)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   subscribe(listener) {

@@ -39,51 +39,51 @@
 <body class="bg-[#08090c] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
 
   <!-- Üst Gezinti ve Marka Çubuğu -->
-  <div id="siteHeaderContainer"></div>
+  <div id="siteHeaderContainer" class="sticky top-0 z-40"></div>
 
   <!-- Tıklanabilir Breadcrumb Gezinti Çubuğu -->
-  <div id="breadcrumbContainer" class="sticky top-[57px] z-30"></div>
+  <div id="breadcrumbContainer" class="relative z-20"></div>
 
   <!-- Ana İçerik Alanı -->
-  <main class="flex-1 flex flex-col relative w-full overflow-hidden">
+  <main class="flex-1 flex flex-col relative w-full">
 
     <!-- 0. GÖRÜNÜM: PORTAL HOME (LEVEL 1 GİRİŞ KAPISI) -->
-    <section id="viewHome" class="view-panel flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewHome" class="view-panel flex-1 bg-[#08090c]">
       <div id="portalHomeContainer"></div>
     </section>
 
     <!-- 1. GÖRÜNÜM: KAS SİSTEMİ (3 KADEMELİ HİYERARŞİ) -->
-    <section id="viewAnatomy" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewAnatomy" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="muscleHierarchyContainer"></div>
     </section>
 
     <!-- 2. GÖRÜNÜM: HAREKET ATLASI -->
-    <section id="viewMovements" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewMovements" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="movementAtlasContainer"></div>
     </section>
 
     <!-- 3. GÖRÜNÜM: BİYOMEKANİK LABORATUVARI -->
-    <section id="viewBioLab" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewBioLab" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="bioLabContainer"></div>
     </section>
 
     <!-- 4. GÖRÜNÜM: EGZERSİZ ANALİZİ -->
-    <section id="viewExercises" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewExercises" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="exerciseLabContainer"></div>
     </section>
 
     <!-- 5. GÖRÜNÜM: "NEDEN HİSSEDİYORUM?" REHBERİ -->
-    <section id="viewInsights" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewInsights" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="insightsContainer"></div>
     </section>
 
     <!-- 6. GÖRÜNÜM: FONKSİYONEL QUIZ -->
-    <section id="viewQuiz" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewQuiz" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="quizContainer"></div>
     </section>
 
     <!-- 7. GÖRÜNÜM: ANTRENMAN AJANDASI (YENİ) -->
-    <section id="viewAgenda" class="view-panel hidden flex-1 bg-[#08090c] overflow-y-auto custom-scrollbar min-h-[calc(100vh-64px)]">
+    <section id="viewAgenda" class="view-panel hidden flex-1 bg-[#08090c]">
       <div id="agendaContainer"></div>
     </section>
 
