@@ -4,6 +4,8 @@
  */
 
 const STORAGE_KEY = 'lesofen_kinetika_agenda_v1';
+const DATE_KEY_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 
 export const SPLITS = [
   { id: "PUSH", name: "PUSH", color: "#f97316", bg: "rgba(249, 115, 22, 0.15)", border: "#ea580c" },
@@ -17,6 +19,16 @@ export const SPLITS = [
   { id: "REST", name: "REST", color: "#64748b", bg: "rgba(100, 116, 139, 0.15)", border: "#475569" }
 ];
 
+const VALID_SPLIT_IDS = new Set(SPLITS.map(s => s.id));
+
+function isValidDateKey(key) {
+  return typeof key === 'string' && DATE_KEY_REGEX.test(key) && !FORBIDDEN_KEYS.has(key);
+}
+
+function isValidSplitId(id) {
+  return typeof id === 'string' && VALID_SPLIT_IDS.has(id);
+}
+
 class AgendaStorage {
   constructor() {
     this.data = this.load();
@@ -24,36 +36,61 @@ class AgendaStorage {
 
   load() {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      return stored ? JSON.parse(stored) : {};
+      if (typeof window === 'undefined' || !window.localStorage) {
+        return Object.create(null);
+      }
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (!stored) return Object.create(null);
+
+      const parsed = JSON.parse(stored);
+      if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+        return Object.create(null);
+      }
+
+      // Sanitize & validate entries against prototype pollution and invalid schemas
+      const cleanData = Object.create(null);
+      for (const [key, val] of Object.entries(parsed)) {
+        if (isValidDateKey(key) && isValidSplitId(val)) {
+          cleanData[key] = val;
+        }
+      }
+      return cleanData;
     } catch (err) {
       console.warn("AgendaStorage load error:", err);
-      return {};
+      return Object.create(null);
     }
   }
 
   save() {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+      if (typeof window === 'undefined' || !window.localStorage) return;
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
     } catch (err) {
       console.warn("AgendaStorage save error:", err);
     }
   }
 
   getSplitForDate(dateKey) {
-    return this.data[dateKey] || null;
+    if (!isValidDateKey(dateKey)) return null;
+    return Object.prototype.hasOwnProperty.call(this.data, dateKey) ? this.data[dateKey] : null;
   }
 
   setSplitForDate(dateKey, splitId) {
+    if (!isValidDateKey(dateKey)) return;
+
     if (!splitId) {
       delete this.data[dateKey];
-    } else {
+    } else if (isValidSplitId(splitId)) {
       this.data[dateKey] = splitId;
+    } else {
+      console.warn("Invalid split ID:", splitId);
+      return;
     }
     this.save();
   }
 
   removeSplit(dateKey) {
+    if (!isValidDateKey(dateKey)) return;
     delete this.data[dateKey];
     this.save();
   }

@@ -5,6 +5,16 @@
 import { state } from '../core/state.js';
 import { graph } from '../core/graph.js';
 
+function escapeHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export class Header {
   constructor(headerContainer, onSearchSelect) {
     this.container = headerContainer;
@@ -191,7 +201,7 @@ export class Header {
       const total = results.muscles.length + results.movements.length + results.exercises.length;
 
       if (total === 0) {
-        resultsList.innerHTML = `<p class="text-xs font-mono text-slate-400 text-center py-4">Sonuç bulunamadı: "${q}"</p>`;
+        resultsList.innerHTML = `<p class="text-xs font-mono text-slate-400 text-center py-4">Sonuç bulunamadı: "${escapeHtml(q)}"</p>`;
         return;
       }
 
