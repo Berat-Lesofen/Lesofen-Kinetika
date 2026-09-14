@@ -22,7 +22,7 @@ export class PortalHome {
     this.container.innerHTML = `
       <div class="portal-home max-w-5xl mx-auto px-4 py-8 md:py-12 animate-fadeIn">
         <!-- Hero Karşılama Başlığı -->
-        <div class="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+        <div class="text-center max-w-2xl mx-auto mb-6 md:mb-7">
           <div class="text-xs text-slate-500 font-medium tracking-wider uppercase mb-3">
             Hareket · Fonksiyonel Anatomi · Biyomekanik
           </div>
@@ -34,6 +34,73 @@ export class PortalHome {
             Kas nasıl çalışıyor? Bir ağırlık neden belirli açılarda daha zor hissettirir? Kuvvet nereye biniyor? 
             Anatomiyi ve mekaniği kalıplara boğulmadan kurcalamak için bir dijital çalışma alanı.
           </p>
+        </div>
+
+        <!-- Living Hero: Connected Arc Diagram -->
+        <div class="hero-arc mb-10 md:mb-12">
+          <svg viewBox="0 0 480 95" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="heroKineticGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="50%" stop-color="#fbbf24" />
+                <stop offset="100%" stop-color="#f59e0b" />
+              </linearGradient>
+            </defs>
+
+            <!-- Background reference datum line (technical axis) -->
+            <line class="hero-arc-datum" x1="45" y1="28" x2="435" y2="28" />
+
+            <!-- Arc paths (behind nodes) -->
+            <g class="hero-arc-paths">
+              <!-- Left arc: movement → joint -->
+              <path class="hero-arc-path hero-arc-path-left" d="M 80,28 Q 160,4 240,28" />
+              <!-- Right arc: joint → force -->
+              <path class="hero-arc-path hero-arc-path-right" d="M 240,28 Q 320,4 400,28" />
+              <!-- Kinetic Gradient Tracing Beam: continuous pulse along the entire chain -->
+              <path class="hero-arc-beam" d="M 80,28 Q 160,4 240,28 Q 320,4 400,28" />
+              <!-- Kinetic transmission direction indicators (chevrons) -->
+              <path class="hero-arc-arrow" d="M 158,13 L 163,16 L 158,19" />
+              <path class="hero-arc-arrow" d="M 318,13 L 323,16 L 318,19" />
+            </g>
+
+            <!-- Node: HAREKET (left) -->
+            <g class="hero-arc-group cursor-pointer" data-node="movement">
+              <rect x="25" y="6" width="110" height="74" fill="transparent" />
+              <circle class="hero-arc-node" cx="80" cy="28" r="5" />
+              <circle class="hero-arc-core" cx="80" cy="28" r="2" />
+              <line class="hero-arc-stem" x1="80" y1="34" x2="80" y2="46" />
+              <g class="hero-arc-label">
+                <text class="hero-arc-concept" x="80" y="60">HAREKET</text>
+                <text class="hero-arc-module" x="80" y="74">Hareket Atlası</text>
+              </g>
+            </g>
+
+            <!-- Node: EKLEM (center) -->
+            <g class="hero-arc-group cursor-pointer" data-node="joint">
+              <rect x="185" y="6" width="110" height="74" fill="transparent" />
+              <!-- Goniometer / joint axis cross tick -->
+              <line class="hero-arc-tick" x1="240" y1="17" x2="240" y2="21" />
+              <circle class="hero-arc-node" cx="240" cy="28" r="5" />
+              <circle class="hero-arc-core" cx="240" cy="28" r="2" />
+              <line class="hero-arc-stem" x1="240" y1="34" x2="240" y2="46" />
+              <g class="hero-arc-label">
+                <text class="hero-arc-concept" x="240" y="60">EKLEM</text>
+                <text class="hero-arc-module" x="240" y="74">Kas Sistemi</text>
+              </g>
+            </g>
+
+            <!-- Node: KUVVET (right) -->
+            <g class="hero-arc-group cursor-pointer" data-node="force">
+              <rect x="345" y="6" width="110" height="74" fill="transparent" />
+              <circle class="hero-arc-node" cx="400" cy="28" r="5" />
+              <circle class="hero-arc-core" cx="400" cy="28" r="2" />
+              <line class="hero-arc-stem" x1="400" y1="34" x2="400" y2="46" />
+              <g class="hero-arc-label">
+                <text class="hero-arc-concept" x="400" y="60">KUVVET</text>
+                <text class="hero-arc-module" x="400" y="74">Biyomekanik Lab</text>
+              </g>
+            </g>
+          </svg>
         </div>
 
         <!-- 6 Ana Giriş Kapısı Grid -->
@@ -75,8 +142,9 @@ export class PortalHome {
           </div>
 
           <!-- 3. BİYOMEKANİK LABORATUVARI (ÖNE ÇIKAN SİMÜLASYON KARTI) -->
-          <div class="portal-card p-6 rounded-2xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400/60 hover:bg-slate-900 transition-all duration-200 cursor-pointer flex flex-col justify-between group shadow-lg shadow-amber-500/5 hover:-translate-y-0.5" data-target="biolab">
-            <div>
+          <div class="portal-card relative p-6 rounded-2xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400/60 hover:bg-slate-900 transition-all duration-200 cursor-pointer flex flex-col justify-between group shadow-lg shadow-amber-500/5 hover:-translate-y-0.5 overflow-hidden" data-target="biolab">
+            <div class="card-border-beam" aria-hidden="true"></div>
+            <div class="relative z-10">
               <div class="flex items-center justify-between mb-3 text-xs text-amber-400/90 font-medium">
                 <span>03 · İnteraktif Simülasyon</span>
                 <span>4 Dinamik Model</span>
@@ -86,7 +154,7 @@ export class PortalHome {
                 Kaldıraçlar, moment kolları ve eklem torkları. Açı değiştikçe kasın üstüne binen gerçek yükü interaktif modelle gör.
               </p>
             </div>
-            <div class="flex items-center text-xs font-medium text-amber-400 group-hover:text-amber-300 pt-3 border-t border-amber-500/20 transition">
+            <div class="relative z-10 flex items-center text-xs font-medium text-amber-400 group-hover:text-amber-300 pt-3 border-t border-amber-500/20 transition">
               <span>Laboratuvara Gir</span>
               <span class="inline-block group-hover:translate-x-1 transition-transform ml-1">→</span>
             </div>
@@ -191,6 +259,29 @@ export class PortalHome {
         } else if (target === 'agenda') {
           state.openAgenda();
         }
+      });
+    });
+
+    // Living Hero: Arc diagram node connections
+    const heroNodeActions = {
+      movement: () => state.openMovements(),
+      joint:    () => state.openMuscles(),
+      force:    () => state.openBioLab()
+    };
+
+    this.container.querySelectorAll('.hero-arc-group').forEach(group => {
+      const nodeId = group.dataset.node;
+      if (heroNodeActions[nodeId]) {
+        group.addEventListener('click', heroNodeActions[nodeId]);
+      }
+      // Arc path highlight on hover (JS needed — groups come after paths in DOM)
+      group.addEventListener('mouseenter', () => {
+        const svg = group.closest('svg');
+        if (svg) svg.setAttribute('data-hovered', nodeId);
+      });
+      group.addEventListener('mouseleave', () => {
+        const svg = group.closest('svg');
+        if (svg) svg.removeAttribute('data-hovered');
       });
     });
 

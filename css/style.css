@@ -165,3 +165,289 @@ input[type=range]::-webkit-slider-runnable-track {
   font-feature-settings: 'liga' 1, 'kern' 1;
 }
 
+/* ===================================================================
+   Living Hero — Connected Arc Diagram
+   =================================================================== */
+
+/* Idle flow animation: slow dash crawl along the arc */
+@keyframes arcFlow {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Container */
+.hero-arc {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* The SVG canvas */
+.hero-arc svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Arc paths (connecting curves) */
+.hero-arc-path {
+  fill: none;
+  stroke: #64748b;           /* slate-500 — clear & refined on obsidian */
+  stroke-width: 1.25;
+  opacity: 0.55;
+  transition: opacity 0.4s ease, stroke 0.4s ease, stroke-width 0.4s ease;
+}
+
+/* Kinetic Gradient Tracing Beam: continuous energetic pulse */
+@keyframes beamTrace {
+  0% {
+    stroke-dashoffset: 480;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.hero-arc-beam {
+  fill: none;
+  stroke: url(#heroKineticGradient);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 80 400;
+  stroke-dashoffset: 480;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.65));
+  animation: beamTrace 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Node circles (outer ring) */
+.hero-arc-node {
+  fill: #0c1017;             /* dark obsidian core */
+  stroke: #94a3b8;           /* slate-400 */
+  stroke-width: 1.5;
+  r: 5;
+  transition: r 0.3s ease, fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Inner scientific target dot */
+.hero-arc-core {
+  fill: #64748b;             /* slate-500 */
+  r: 2;
+  transition: fill 0.3s ease, r 0.3s ease;
+  pointer-events: none;
+}
+
+/* Datum line (precision coordinate baseline) */
+.hero-arc-datum {
+  stroke: #334155;           /* slate-700 */
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.6;
+}
+
+/* Direction indicators along kinetic chain */
+.hero-arc-arrow {
+  fill: none;
+  stroke: #64748b;           /* slate-500 */
+  stroke-width: 1.25;
+  opacity: 0.75;
+  transition: stroke 0.3s ease, opacity 0.3s ease;
+}
+
+/* Joint axis tick (goniometer reference mark) */
+.hero-arc-tick {
+  stroke: #64748b;           /* slate-500 */
+  stroke-width: 1;
+  opacity: 0.7;
+}
+
+/* Stem lines (short vertical below nodes) */
+.hero-arc-stem {
+  stroke: #475569;           /* slate-600 */
+  stroke-width: 1;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, stroke 0.3s ease;
+}
+
+/* Label groups */
+.hero-arc-label {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.hero-arc-concept {
+  fill: #94a3b8;             /* slate-400 — clearly legible */
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+  transition: fill 0.3s ease;
+}
+.hero-arc-module {
+  fill: #f1f5f9;             /* slate-100 — high readability */
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-anchor: middle;
+  transition: fill 0.3s ease;
+}
+
+/* ---- Hover States ---- */
+
+/* When a node group is hovered */
+.hero-arc-group:hover .hero-arc-node {
+  r: 6.5;
+  fill: #08090c;
+}
+.hero-arc-group:hover .hero-arc-core {
+  r: 2.5;
+}
+.hero-arc-group:hover .hero-arc-stem {
+  opacity: 0.9;
+}
+.hero-arc-group:hover .hero-arc-label {
+  opacity: 1;
+}
+
+/* Per-node accent colors on hover */
+.hero-arc-group[data-node="movement"]:hover .hero-arc-node {
+  stroke: #22d3ee;           /* cyan-400 */
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4));
+}
+.hero-arc-group[data-node="movement"]:hover .hero-arc-core,
+.hero-arc-group[data-node="movement"]:hover .hero-arc-concept,
+.hero-arc-group[data-node="movement"]:hover .hero-arc-module {
+  fill: #22d3ee;
+}
+.hero-arc-group[data-node="movement"]:hover .hero-arc-stem {
+  stroke: #22d3ee;
+}
+
+.hero-arc-group[data-node="joint"]:hover .hero-arc-node {
+  stroke: #fbbf24;           /* amber-400 */
+  filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.4));
+}
+.hero-arc-group[data-node="joint"]:hover .hero-arc-core,
+.hero-arc-group[data-node="joint"]:hover .hero-arc-concept,
+.hero-arc-group[data-node="joint"]:hover .hero-arc-module {
+  fill: #fbbf24;
+}
+.hero-arc-group[data-node="joint"]:hover .hero-arc-stem {
+  stroke: #fbbf24;
+}
+
+.hero-arc-group[data-node="force"]:hover .hero-arc-node {
+  stroke: #f59e0b;           /* amber-500 — lab warmth */
+  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.4));
+}
+.hero-arc-group[data-node="force"]:hover .hero-arc-core,
+.hero-arc-group[data-node="force"]:hover .hero-arc-concept,
+.hero-arc-group[data-node="force"]:hover .hero-arc-module {
+  fill: #f59e0b;
+}
+.hero-arc-group[data-node="force"]:hover .hero-arc-stem {
+  stroke: #f59e0b;
+}
+
+/* When a node is hovered, the adjacent arc segment and arrows brighten */
+svg[data-hovered="movement"] .hero-arc-path-left,
+svg[data-hovered="joint"] .hero-arc-path-left,
+svg[data-hovered="joint"] .hero-arc-path-right,
+svg[data-hovered="force"] .hero-arc-path-right {
+  opacity: 0.9;
+  stroke: #94a3b8;
+  stroke-width: 1.75;
+}
+
+svg[data-hovered="movement"] .hero-arc-arrow,
+svg[data-hovered="joint"] .hero-arc-arrow,
+svg[data-hovered="force"] .hero-arc-arrow {
+  opacity: 1;
+  stroke: #cbd5e1;
+}
+
+/* ===================================================================
+   Featured Portal Card: Border Beam Lazer Effect
+   =================================================================== */
+
+.card-border-beam {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.card-border-beam::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(251, 191, 36, 0.25) 310deg,
+    rgba(251, 191, 36, 0.9) 345deg,
+    rgba(251, 146, 60, 1) 355deg,
+    transparent 360deg
+  );
+  animation: borderBeamRotate 6s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes borderBeamRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-arc-beam {
+    animation: none;
+    opacity: 0.3;
+    stroke-dashoffset: 160;
+  }
+  .card-border-beam::after {
+    animation: none;
+    transform: rotate(45deg);
+    opacity: 0.35;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 639px) {
+  .hero-arc {
+    max-width: 320px;
+  }
+  .hero-arc-concept {
+    font-size: 8.5px;
+  }
+  .hero-arc-module {
+    font-size: 10.5px;
+  }
+}
